@@ -2,10 +2,14 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 class Contact extends Component {
-  state = {};
+  state = {
+    showContactInfo: true
+  };
+
   // an arrow function allows to use "this" without having to bind
-  onShowClick = () => {
-    console.log(this.state);
+  onShowClick = e => {
+    //you cannot mutate state directly
+    this.setState({ showContactInfo: !this.state.showContactInfo });
   };
   render() {
     const { name, email, phone } = this.props.contact;
